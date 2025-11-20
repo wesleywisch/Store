@@ -1,7 +1,8 @@
 import { Truck, TicketPercent, ArrowLeftRight } from "lucide-react";
 
-import { Banners } from "@/components/home/banners";
 import { data } from "@/data";
+import { Banners } from "@/components/home/banners";
+import { ProductListSkeleton } from "@/components/home/product-list-skeleton";
 
 export default function Page() {
   return (
@@ -38,6 +39,9 @@ export default function Page() {
           </div>
         </div>
       </div>
+
+      <ProductListSkeleton />
+      <ProductListSkeleton />
     </div>
   );
 }
