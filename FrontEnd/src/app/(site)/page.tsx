@@ -1,8 +1,11 @@
 import { Truck, TicketPercent, ArrowLeftRight } from "lucide-react";
+import { Suspense } from "react";
 
 import { data } from "@/data";
 import { Banners } from "@/components/home/banners";
 import { ProductListSkeleton } from "@/components/home/product-list-skeleton";
+import { MostViewedProducts } from "@/components/home/most-viewed-products";
+import { MostSoldProducts } from "@/components/home/most-sold-products";
 
 export default function Page() {
   return (
@@ -40,8 +43,13 @@ export default function Page() {
         </div>
       </div>
 
-      <ProductListSkeleton />
-      <ProductListSkeleton />
+      <Suspense fallback={<ProductListSkeleton />}>
+        <MostViewedProducts />
+      </Suspense>
+
+      <Suspense fallback={<ProductListSkeleton />}>
+        <MostSoldProducts />
+      </Suspense>
     </div>
   );
 }
